@@ -1,5 +1,3 @@
-fetch("data/2026-03.json")
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -66,37 +64,37 @@ line-height:1.5;
 </div>
 
 <script>
-fetch('data/2026-03.json')
-.then(res=>res.json())
-.then(data=>{
+fetch("data/2026-03.json")
+  .then(res => res.json())
+  .then(data => {
 
-const container=document.getElementById('repertuar');
+    document.querySelector("h1").innerText =
+      "Repertuar – " + data.month;
 
-data.forEach(film=>{
+    const container = document.getElementById("movies");
 
-container.innerHTML+=`
-<div class="film">
-  <div class="poster">
-    <img src="posters/${film.poster}" alt="${film.title}">
-  </div>
-  <div class="details">
-    <div class="date">${film.date} | godz. ${film.time}</div>
-    <div class="title">${film.title}</div>
-    <div class="meta">
-      Rok: ${film.year}<br>
-      Gatunek: ${film.genre}<br>
-      Produkcja: ${film.production}<br>
-      Reżyseria: ${film.director}<br>
-      Czas: ${film.duration} min<br>
-      Wiek: ${film.age}
-    </div>
-  </div>
-</div>
-`;
+    data.movies.forEach(movie => {
 
-});
+      const film = document.createElement("div");
+      film.className = "film";
 
-});
+      film.innerHTML = `
+        <div class="poster">
+          <img src="posters/${movie.poster}" alt="${movie.title}">
+        </div>
+        <div>
+          <h3>${movie.title}</h3>
+          <p><strong>Data:</strong> ${movie.date} godz. ${movie.time}</p>
+          <p><strong>Wiek:</strong> ${movie.age}</p>
+          <p><strong>Rok:</strong> ${movie.year}</p>
+        </div>
+      `;
+
+      container.appendChild(film);
+
+    });
+
+  });
 </script>
 
 </body>
