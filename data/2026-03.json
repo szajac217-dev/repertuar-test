@@ -1,1 +1,225 @@
+{
+  "month": "Marzec 2026",
+  "movies": [
 
+    {
+      "date": "06.03.2026",
+      "time": "15:30",
+      "title": "Wesele",
+      "dkf": true,
+      "ticket": "15 zł",
+      "age": "13+",
+      "year": 1972,
+      "type": "Fabularny",
+      "genre": "Dramat",
+      "country": "Polska",
+      "director": "Andrzej Wajda",
+      "cast": "Andrzej Łapicki, Bożena Dykiel, Daniel Olbrychski",
+      "distributor": "WFDiF",
+      "duration": 102,
+      "poster": "wesele.jpg"
+    },
+
+    {
+      "date": "06.03.2026",
+      "time": "18:00",
+      "title": "Krajobraz po bitwie",
+      "age": "16+",
+      "year": 1970,
+      "type": "Fabularny",
+      "genre": "Dramat, Psychologiczny",
+      "country": "Polska",
+      "director": "Andrzej Wajda",
+      "cast": "Daniel Olbrychski, Stanisława Celińska",
+      "distributor": "WFDiF",
+      "duration": 105,
+      "poster": "krajobraz-po-bitwie.jpg"
+    },
+
+    {
+      "date": "07.03.2026",
+      "time": "14:00",
+      "title": "Fantastyczny Angelo",
+      "age": "7+",
+      "year": 2024,
+      "type": "Fabularny animowany",
+      "genre": "Film dla dzieci",
+      "country": "Francja, Luksemburg",
+      "director": "Vincent Parronaud",
+      "distributor": "Stowarzyszenie Nowe Horyzonty",
+      "duration": 84,
+      "poster": "fantastyczny-angelo.jpg"
+    },
+
+    {
+      "date": "07.03.2026",
+      "time": "18:00",
+      "title": "The Last Showgirl",
+      "age": "16+",
+      "year": 2024,
+      "type": "Fabularny",
+      "genre": "Dramat",
+      "country": "USA",
+      "director": "Gia Coppola",
+      "cast": "Pamela Anderson, Jamie Lee Curtis",
+      "distributor": "GUTEK FILM",
+      "duration": 89,
+      "poster": "the-last-showgirl.jpg"
+    },
+
+    {
+      "date": "13.03.2026",
+      "time": "18:00",
+      "title": "Obietnica poranka",
+      "age": "18+",
+      "year": 2017,
+      "type": "Fabularny",
+      "genre": "Biograficzny",
+      "country": "Francja",
+      "director": "Eric Barbier",
+      "distributor": "Aurora Films",
+      "duration": 131,
+      "poster": "obietnica-poranka.jpg"
+    },
+
+    {
+      "date": "14.03.2026",
+      "time": "14:00",
+      "title": "Skrzat. Nowy początek",
+      "age": "7+",
+      "year": 2025,
+      "type": "Fabularny",
+      "genre": "Familijny",
+      "country": "Czechy, Polska",
+      "director": "Krzysztof Komander",
+      "distributor": "Next Film",
+      "duration": 99,
+      "poster": "skrzat.jpg"
+    },
+
+    {
+      "date": "14.03.2026",
+      "time": "18:00",
+      "title": "Mars Express. Świat, który nadejdzie",
+      "age": "16+",
+      "year": 2023,
+      "type": "Fabularny animowany",
+      "genre": "Science fiction, Thriller",
+      "country": "Francja",
+      "director": "Jérémie Périn",
+      "distributor": "GUTEK FILM",
+      "duration": 89,
+      "poster": "mars-express.jpg"
+    },
+
+    {
+      "date": "20.03.2026",
+      "time": "15:30",
+      "title": "Jedno życie",
+      "dkf": true,
+      "ticket": "15 zł",
+      "age": "15+",
+      "year": 2023,
+      "type": "Fabularny",
+      "genre": "Biograficzny, Dramat, Wojenny",
+      "country": "Wielka Brytania",
+      "director": "James Hawes",
+      "cast": "Anthony Hopkins",
+      "distributor": "Monolith Films",
+      "duration": 105,
+      "poster": "jedno-zycie.jpg"
+    },
+
+    {
+      "date": "20.03.2026",
+      "time": "18:00",
+      "title": "Saint-Exupéry. Zanim powstał Mały Książę",
+      "age": "15+",
+      "year": 2024,
+      "type": "Fabularny",
+      "genre": "Biograficzny, Dramat",
+      "country": "Belgia, Francja",
+      "director": "Pablo Agüero",
+      "distributor": "Kino Świat",
+      "duration": 94,
+      "poster": "saint-exupery.jpg"
+    },
+
+    {
+      "date": "21.03.2026",
+      "time": "14:00",
+      "title": "Kayara niepokonana",
+      "age": "7+",
+      "year": 2025,
+      "type": "Fabularny animowany",
+      "genre": "Film dla dzieci",
+      "country": "Hiszpania, Peru",
+      "director": "Cesar Zelada",
+      "distributor": "Kino Świat",
+      "duration": 78,
+      "poster": "kayara.jpg"
+    },
+
+    {
+      "date": "21.03.2026",
+      "time": "18:00",
+      "title": "Konklawe",
+      "age": "15+",
+      "year": 2024,
+      "type": "Fabularny",
+      "genre": "Dramat, Thriller",
+      "country": "USA, Wielka Brytania",
+      "director": "Edward Berger",
+      "cast": "Ralph Fiennes",
+      "distributor": "Monolith Films",
+      "duration": 115,
+      "poster": "konklawe.jpg"
+    },
+
+    {
+      "date": "27.03.2026",
+      "time": "18:00",
+      "title": "LARP. Miłość, trolle i inne questy",
+      "age": "15+",
+      "year": 2025,
+      "type": "Fabularny",
+      "genre": "Komedia",
+      "country": "Polska",
+      "director": "Kordian Kądziela",
+      "distributor": "Mówi Serwis",
+      "duration": 94,
+      "poster": "larp.jpg"
+    },
+
+    {
+      "date": "28.03.2026",
+      "time": "14:00",
+      "title": "Heidi ratuje rysia",
+      "age": "7+",
+      "year": 2025,
+      "type": "Fabularny animowany",
+      "genre": "Film dla dzieci",
+      "country": "Belgia, Hiszpania, Niemcy",
+      "director": "Toby Schwarz",
+      "distributor": "Kino Świat",
+      "duration": 76,
+      "poster": "heidi.jpg"
+    },
+
+    {
+      "date": "28.03.2026",
+      "time": "18:00",
+      "title": "Podrabiani zakochani",
+      "age": "16+",
+      "year": 2023,
+      "type": "Fabularny",
+      "genre": "Komedia, Romans, Science fiction",
+      "country": "USA",
+      "director": "Anthony Hines",
+      "distributor": "Best Film",
+      "duration": 89,
+      "poster": "podrabiani.jpg"
+    }
+
+  ]
+}
