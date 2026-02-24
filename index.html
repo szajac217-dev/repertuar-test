@@ -2,167 +2,257 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<title>Repertuar </title>
+<title>Repertuar – Marzec 2026</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 body{
-  font-family:Arial;
-  margin:0;
-  padding:20px;
-  background:#f2f2f2;
+margin:0;
+background:#f3f3f3;
+font-family:Arial;
 }
 
-.container{
-  max-width:1100px;
-  margin:auto;
-  background:#fff;
-  padding:25px;
-  border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
+.moksial{
+max-width:1100px;
+margin:30px auto;
+padding:0 12px;
 }
 
-h1{
-  text-align:center;
-  margin-bottom:40px;
-  background:#0f9d3a;
-  color:#fff;
-  padding:15px;
-  border-radius:10px;
+.bar{
+height:8px;
+border-radius:8px;
+margin-bottom:12px;
+background:linear-gradient(90deg,#E73139 0%,#E4DF00 50%,#079B39 100%);
 }
 
-.film{
-  display:flex;
-  gap:25px;
-  padding:25px 0;
-  border-bottom:1px solid #ddd;
-  position:relative;
+h2{
+margin:6px 0 18px;
 }
 
-.film::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:-1px;
-  height:3px;
-  background:#e53935;
+h2 span{
+background:#079B39;
+color:#fff;
+padding:8px 16px;
+border-radius:14px;
+font-weight:700;
+font-size:22px;
 }
 
-.poster{
-  width:180px;
-  flex-shrink:0;
+.wrap{
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 12px 35px rgba(0,0,0,.08);
 }
 
-.poster img{
-  width:100%;
-  border-radius:12px;
-  box-shadow:0 6px 16px rgba(0,0,0,.2);
+table{
+width:100%;
+border-collapse:collapse;
 }
 
-.details{
-  flex:1;
+thead th{
+background:#079B39;
+color:#fff;
+padding:16px;
+text-align:center;
+font-size:16px;
 }
 
-.title{
-  font-size:22px;
-  font-weight:700;
-  margin-bottom:8px;
+thead th:first-child{
+border-top-left-radius:18px;
+}
+
+thead th:last-child{
+border-top-right-radius:18px;
+}
+
+td{
+vertical-align:top;
+padding:20px;
+border-top:1px solid #eee;
+}
+
+td:first-child{
+width:28%;
+border-right:1px solid #eee;
+text-align:center;
+background:#fafafa;
 }
 
 .date{
-  font-weight:700;
-  color:#0f9d3a;
-  margin-bottom:6px;
+display:inline-block;
+padding:6px 14px;
+border:1px solid #079B39;
+border-radius:12px;
+color:#079B39;
+font-weight:600;
+margin-bottom:4px;
 }
 
-.meta p{
-  margin:4px 0;
-  font-size:14px;
+.poster{
+width:170px;
+margin:12px auto 0;
+border-radius:16px;
+overflow:hidden;
+}
+
+.poster img{
+width:100%;
+display:block;
+border-radius:16px;
+box-shadow:0 8px 20px rgba(0,0,0,.18);
+}
+
+.head{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:10px;
+}
+
+.head h3{
+margin:0;
+font-size:22px;
+font-weight:700;
+}
+
+.badges{
+display:flex;
+gap:6px;
+flex-wrap:wrap;
 }
 
 .badge{
-  display:inline-block;
-  background:#ff9800;
-  color:#fff;
-  padding:4px 10px;
-  border-radius:20px;
-  font-size:12px;
-  margin-left:10px;
+background:#FF9800;
+color:#fff;
+padding:4px 10px;
+border-radius:999px;
+font-size:12px;
+font-weight:700;
 }
 
 .badge.dkf{
-  background:#1976d2;
+background:#1E88E5;
 }
 
 .badge.ticket{
-  background:#555;
+background:#455A64;
 }
 
-@media(max-width:800px){
-  .film{flex-direction:column}
-  .poster{width:100%}
+.line{
+height:3px;
+background:#E73139;
+margin:12px 0 16px;
+border-radius:3px;
+}
+
+.line.dkf{
+background:#1E88E5;
+}
+
+strong{
+color:#079B39;
+}
+
+p{
+margin:4px 0;
+font-size:14px;
+}
+
+tbody tr:last-child td:first-child{
+border-bottom-left-radius:18px;
+}
+
+tbody tr:last-child td:last-child{
+border-bottom-right-radius:18px;
+}
+
+@media(max-width:900px){
+table,thead,tbody,tr,td,th{
+display:block;
+width:100%;
+}
+thead{display:none;}
+td:first-child{
+border-right:0;
+}
 }
 </style>
 </head>
 
 <body>
-<div class="container">
-<h1>Repertuar</h1>
-<div id="repertuar"></div>
+
+<div class="moksial">
+
+<div class="bar"></div>
+<h2><span id="title">Repertuar – Marzec 2026</span></h2>
+
+<div class="wrap">
+<table>
+<thead>
+<tr>
+<th>DATA</th>
+<th>FILM</th>
+</tr>
+</thead>
+
+<tbody id="repertuar"></tbody>
+
+</table>
+</div>
 </div>
 
 <script>
 fetch("data/2026-03.json")
-  .then(res => res.json())
-  .then(data => {
+.then(res => res.json())
+.then(data => {
 
-    document.querySelector("h1").innerText =
-      "Repertuar Kino Za Rogiem – " + data.month;
+document.getElementById("title").innerText =
+"Repertuar – Kino Za Rogiem (" + data.month + ")";
 
-    const container = document.getElementById("repertuar");
+const tbody = document.getElementById("repertuar");
 
-    data.movies.forEach(movie => {
+data.movies.forEach(movie => {
 
-      const film = document.createElement("div");
-      film.className = "film";
+const tr = document.createElement("tr");
 
-      film.innerHTML = `
-        <div class="poster">
-          <img src="posters/${movie.poster}" alt="${movie.title}">
-        </div>
+tr.innerHTML = `
+<td>
+<div class="date">${movie.date}</div><br>
+${movie.time}
+<div class="poster">
+<img src="posters/${movie.poster}" alt="${movie.title}">
+</div>
+</td>
 
-        <div class="details">
-          <div class="title">
-            ${movie.title}
-            ${movie.age ? `<span class="badge">Wiek: ${movie.age}</span>` : ""}
-            ${movie.dkf ? `<span class="badge dkf">DKF</span>` : ""}
-            ${movie.ticket ? `<span class="badge ticket">Bilet: ${movie.ticket}</span>` : ""}
-          </div>
+<td>
+<div class="head">
+<h3>${movie.title}</h3>
+<div class="badges">
+${movie.dkf ? `<span class="badge dkf">DKF</span>
+<span class="badge ticket">Bilet: ${movie.ticket}</span>` : ``}
+<span class="badge">Wiek: ${movie.age}</span>
+</div>
+</div>
 
-          <div class="date">${movie.date} godz. ${movie.time}</div>
+<div class="line ${movie.dkf ? "dkf" : ""}"></div>
 
-          <div class="meta">
-            ${movie.year ? `<p><strong>Rok:</strong> ${movie.year}</p>` : ""}
-            ${movie.genre ? `<p><strong>Gatunek:</strong> ${movie.genre}</p>` : ""}
-            ${movie.country ? `<p><strong>Produkcja:</strong> ${movie.country}</p>` : ""}
-            ${movie.director ? `<p><strong>Reżyseria:</strong> ${movie.director}</p>` : ""}
-            ${movie.cast ? `<p><strong>Obsada:</strong> ${movie.cast}</p>` : ""}
-            ${movie.distributor ? `<p><strong>Dystrybutor:</strong> ${movie.distributor}</p>` : ""}
-            ${movie.duration ? `<p><strong>Czas trwania:</strong> ${movie.duration} min</p>` : ""}
-          </div>
-        </div>
-      `;
+<p><strong>Rok produkcji:</strong> ${movie.year}</p>
+<p><strong>Rodzaj:</strong> ${movie.type}</p>
+<p><strong>Gatunek:</strong> ${movie.genre}</p>
+<p><strong>Produkcja:</strong> ${movie.country}</p>
+<p><strong>Reżyseria:</strong> ${movie.director}</p>
+${movie.cast ? `<p><strong>Obsada:</strong> ${movie.cast}</p>` : ``}
+<p><strong>Dystrybutor:</strong> ${movie.distributor}</p>
+<p><strong>Czas trwania:</strong> ${movie.duration} min</p>
+</td>
+`;
 
-      container.appendChild(film);
-    });
+tbody.appendChild(tr);
 
-  })
-  .catch(err => {
-    document.getElementById("repertuar").innerHTML =
-      "<p>Błąd wczytywania repertuaru.</p>";
-    console.error(err);
-  });
+});
+
+});
 </script>
 
 </body>
