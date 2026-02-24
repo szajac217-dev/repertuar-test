@@ -2,64 +2,113 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<title>Repertuar – Marzec 2026</title>
+<title>Repertuar</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-body{font-family:Arial;margin:0;padding:20px;background:#f5f5f5}
-.container{max-width:1100px;margin:auto;background:#fff;padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
-h1{text-align:center;margin-bottom:30px}
+body{
+  font-family:Arial;
+  margin:0;
+  padding:20px;
+  background:#f2f2f2;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  background:#fff;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+h1{
+  text-align:center;
+  margin-bottom:40px;
+  background:#0f9d3a;
+  color:#fff;
+  padding:15px;
+  border-radius:10px;
+}
 
 .film{
-display:flex;
-gap:20px;
-border-bottom:1px solid #eee;
-padding:20px 0;
+  display:flex;
+  gap:25px;
+  padding:25px 0;
+  border-bottom:1px solid #ddd;
+  position:relative;
+}
+
+.film::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-1px;
+  height:3px;
+  background:#e53935;
 }
 
 .poster{
-width:180px;
-flex-shrink:0;
+  width:180px;
+  flex-shrink:0;
 }
 
 .poster img{
-width:100%;
-border-radius:12px;
-box-shadow:0 6px 16px rgba(0,0,0,.15);
+  width:100%;
+  border-radius:12px;
+  box-shadow:0 6px 16px rgba(0,0,0,.2);
 }
 
 .details{
-flex:1;
-}
-
-.date{
-font-weight:700;
-color:#079B39;
-margin-bottom:8px;
+  flex:1;
 }
 
 .title{
-font-size:22px;
-font-weight:700;
-margin-bottom:10px;
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:8px;
 }
 
-.meta{
-font-size:14px;
-color:#555;
-line-height:1.5;
+.date{
+  font-weight:700;
+  color:#0f9d3a;
+  margin-bottom:6px;
+}
+
+.meta p{
+  margin:4px 0;
+  font-size:14px;
+}
+
+.badge{
+  display:inline-block;
+  background:#ff9800;
+  color:#fff;
+  padding:4px 10px;
+  border-radius:20px;
+  font-size:12px;
+  margin-left:10px;
+}
+
+.badge.dkf{
+  background:#1976d2;
+}
+
+.badge.ticket{
+  background:#555;
 }
 
 @media(max-width:800px){
-.film{flex-direction:column}
-.poster{width:100%}
+  .film{flex-direction:column}
+  .poster{width:100%}
 }
 </style>
 </head>
 
 <body>
 <div class="container">
-<h1>Repertuar – Marzec 2026</h1>
+<h1>Repertuar</h1>
 <div id="repertuar"></div>
 </div>
 
@@ -82,18 +131,37 @@ fetch("data/2026-03.json")
         <div class="poster">
           <img src="posters/${movie.poster}" alt="${movie.title}">
         </div>
-        <div>
-          <h3>${movie.title}</h3>
-          <p><strong>Data:</strong> ${movie.date} godz. ${movie.time}</p>
-          <p><strong>Wiek:</strong> ${movie.age}</p>
-          <p><strong>Rok:</strong> ${movie.year}</p>
+
+        <div class="details">
+          <div class="title">
+            ${movie.title}
+            ${movie.age ? `<span class="badge">Wiek: ${movie.age}</span>` : ""}
+            ${movie.dkf ? `<span class="badge dkf">DKF</span>` : ""}
+            ${movie.ticket ? `<span class="badge ticket">Bilet: ${movie.ticket}</span>` : ""}
+          </div>
+
+          <div class="date">${movie.date} godz. ${movie.time}</div>
+
+          <div class="meta">
+            ${movie.year ? `<p><strong>Rok:</strong> ${movie.year}</p>` : ""}
+            ${movie.genre ? `<p><strong>Gatunek:</strong> ${movie.genre}</p>` : ""}
+            ${movie.country ? `<p><strong>Produkcja:</strong> ${movie.country}</p>` : ""}
+            ${movie.director ? `<p><strong>Reżyseria:</strong> ${movie.director}</p>` : ""}
+            ${movie.cast ? `<p><strong>Obsada:</strong> ${movie.cast}</p>` : ""}
+            ${movie.distributor ? `<p><strong>Dystrybutor:</strong> ${movie.distributor}</p>` : ""}
+            ${movie.duration ? `<p><strong>Czas trwania:</strong> ${movie.duration} min</p>` : ""}
+          </div>
         </div>
       `;
 
       container.appendChild(film);
-
     });
 
+  })
+  .catch(err => {
+    document.getElementById("repertuar").innerHTML =
+      "<p>Błąd wczytywania repertuaru.</p>";
+    console.error(err);
   });
 </script>
 
