@@ -1,0 +1,121 @@
+{
+  "month": "Kwiecień 2026",
+  "movies": [
+
+    {
+      "date": "10.04.2026",
+      "time": "15:30",
+      "title": "7 uczuć",
+      "dkf": true,
+      "ticket": "15 zł",
+      "age": "16+",
+      "year": 2018,
+      "type": "Fabularny",
+      "genre": "Komediodramat",
+      "country": "Polska",
+      "director": "Marek Koterski",
+      "cast": "Gabriela Muskała, Katarzyna Figura, Małgorzata Bogdańska, Marcin Dorociński, Michał Koterski",
+      "distributor": "Kino Świat",
+      "duration": 112,
+      "poster": "7-uczuc.jpg"
+    },
+
+    {
+      "date": "10.04.2026",
+      "time": "18:00",
+      "title": "Łowca jeleni",
+      "age": "18+",
+      "year": 1978,
+      "type": "Fabularny",
+      "genre": "Dramat, Wojenny",
+      "country": "USA, Wielka Brytania",
+      "director": "Michael Cimino",
+      "cast": "Robert De Niro, Meryl Streep",
+      "distributor": "RESET",
+      "duration": 184,
+      "poster": "lowca-jeleni.jpg"
+    },
+
+    {
+      "date": "11.04.2026",
+      "time": "14:00",
+      "title": "Skubani",
+      "age": "7+",
+      "year": 2013,
+      "type": "Fabularny animowany",
+      "genre": "Film dla dzieci",
+      "country": "USA",
+      "director": "Jimmy Hayward",
+      "distributor": "Monolith Films",
+      "duration": 87,
+      "poster": "skubani.jpg"
+    },
+
+    {
+      "date": "17.04.2026",
+      "time": "15:30",
+      "title": "Życie Chucka",
+      "dkf": true,
+      "ticket": "15 zł",
+      "age": "15+",
+      "year": 2024,
+      "type": "Fabularny",
+      "genre": "Dramat, Science fiction",
+      "country": "USA",
+      "director": "Mike Flanagan",
+      "cast": "Tom Hiddleston",
+      "distributor": "Monolith Films",
+      "duration": 106,
+      "poster": "zycie-chucka.jpg"
+    },
+
+    {
+      "date": "17.04.2026",
+      "time": "18:00",
+      "title": "Magia w blasku księżyca",
+      "age": "12+",
+      "year": 2014,
+      "type": "Fabularny",
+      "genre": "Komediodramat",
+      "country": "USA",
+      "director": "Woody Allen",
+      "cast": "Colin Firth, Emma Stone",
+      "distributor": "Kino Świat",
+      "duration": 93,
+      "poster": "magia-w-blasku-ksiezyca.jpg"
+    },
+
+    {
+      "date": "18.04.2026",
+      "time": "14:00",
+      "title": "Skrzat. Nowy początek",
+      "age": "7+",
+      "year": 2025,
+      "type": "Fabularny",
+      "genre": "Familijny, Film dla dzieci",
+      "country": "Czechy, Polska",
+      "director": "Krzysztof Komander",
+      "cast": "Amelia Golda, Arkadiusz Jakubik",
+      "distributor": "Next Film",
+      "duration": 99,
+      "poster": "skrzat.jpg"
+    },
+
+    {
+      "date": "18.04.2026",
+      "time": "18:00",
+      "title": "Lot nad kukułczym gniazdem",
+      "age": "18+",
+      "year": 1975,
+      "type": "Fabularny",
+      "genre": "Dramat, Psychologiczny",
+      "country": "USA",
+      "director": "Milos Forman",
+      "cast": "Jack Nicholson",
+      "distributor": "Past Perfect",
+      "duration": 134,
+      "poster": "lot-nad-kukulczym.jpg"
+    }
+
+  ]
+}
