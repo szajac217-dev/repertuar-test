@@ -2,258 +2,497 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<title>Repertuar – Czerwiec 2026</title>
+<title>Repertuar – Kino Za Rogiem</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+:root{
+  --green:#079B39;
+  --light-green:#86C947;
+  --yellow:#E4DF00;
+  --orange:#F28C00;
+  --red:#E73139;
+  --blue:#1E88E5;
+  --ink:#172018;
+  --muted:#66716a;
+  --card:#ffffff;
+  --bg:#f4f6f3;
+}
+
+*{
+  box-sizing:border-box;
+}
+
 body{
-margin:0;
-background:#f3f3f3;
-font-family:Arial;
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(7,155,57,.12), transparent 34rem),
+    radial-gradient(circle at top right, rgba(231,49,57,.10), transparent 28rem),
+    var(--bg);
 }
 
-.moksial{
-max-width:1100px;
-margin:30px auto;
-padding:0 12px;
+.page{
+  max-width:1180px;
+  margin:0 auto;
+  padding:32px 16px 56px;
 }
 
-.bar{
-height:8px;
-border-radius:8px;
-margin-bottom:12px;
-background:linear-gradient(90deg,#E73139 0%,#E4DF00 50%,#079B39 100%);
+.hero{
+  position:relative;
+  overflow:hidden;
+  border-radius:28px;
+  padding:32px;
+  color:#fff;
+  background:
+    linear-gradient(135deg, rgba(7,155,57,.96), rgba(4,92,41,.94)),
+    linear-gradient(90deg, var(--red), var(--orange), var(--yellow), var(--light-green), var(--green));
+  box-shadow:0 20px 50px rgba(0,0,0,.16);
 }
 
-h2{
-margin:6px 0 18px;
+.hero::after{
+  content:"";
+  position:absolute;
+  right:-60px;
+  top:-70px;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  background:rgba(255,255,255,.12);
 }
 
-h2 span{
-background:#079B39;
-color:#fff;
-padding:8px 16px;
-border-radius:14px;
-font-weight:700;
-font-size:22px;
+.kicker{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  padding:7px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.16);
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
 }
 
-.wrap{
-background:#fff;
-border-radius:18px;
-overflow:hidden;
-box-shadow:0 12px 35px rgba(0,0,0,.08);
+.hero h1{
+  position:relative;
+  z-index:1;
+  margin:18px 0 8px;
+  font-size:clamp(30px,5vw,54px);
+  line-height:1;
 }
 
-table{
-width:100%;
-border-collapse:collapse;
+.hero p{
+  position:relative;
+  z-index:1;
+  margin:0;
+  max-width:720px;
+  font-size:17px;
+  line-height:1.45;
+  opacity:.94;
 }
 
-thead th{
-background:#079B39;
-color:#fff;
-padding:16px;
-text-align:center;
-font-size:16px;
+.color-strip{
+  position:relative;
+  z-index:1;
+  height:9px;
+  width:100%;
+  max-width:none;
+  border-radius:999px;
+  margin:24px 0 0;
+  background:linear-gradient(90deg,
+    var(--red) 0%,
+    var(--orange) 25%,
+    var(--yellow) 50%,
+    var(--light-green) 75%,
+    var(--green) 100%);
+  box-shadow:0 8px 22px rgba(0,0,0,.14);
 }
 
-thead th:first-child{
-border-top-left-radius:18px;
+.day{
+  margin-top:34px;
 }
 
-thead th:last-child{
-border-top-right-radius:18px;
+.day-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:0 0 14px;
+  font-size:22px;
 }
 
-td{
-vertical-align:top;
-padding:20px;
-border-top:1px solid #eee;
+.day-title .date-pill{
+  color:var(--green);
+  border:1px solid rgba(7,155,57,.28);
+  background:#fff;
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:15px;
+  font-weight:800;
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
 }
 
-td:first-child{
-width:28%;
-border-right:1px solid #eee;
-text-align:center;
-background:#fafafa;
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
 }
 
-.date{
-display:inline-block;
-padding:6px 14px;
-border:1px solid #079B39;
-border-radius:12px;
-color:#079B39;
-font-weight:600;
-margin-bottom:4px;
+.card{
+  position:relative;
+  display:grid;
+  grid-template-columns:160px 1fr;
+  gap:20px;
+  padding:18px;
+  min-height:255px;
+  background:var(--card);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:24px;
+  box-shadow:0 14px 38px rgba(0,0,0,.09);
+  overflow:hidden;
+}
+
+.card.dkf{
+  border-color:rgba(30,136,229,.34);
+}
+
+.card.dkf::before{
+  content:"DKF";
+  position:absolute;
+  right:18px;
+  top:18px;
+  z-index:2;
+  background:var(--blue);
+  color:#fff;
+  border-radius:999px;
+  padding:6px 12px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.04em;
 }
 
 .poster{
-width:170px;
-margin:12px auto 0;
-border-radius:16px;
-overflow:hidden;
+  width:100%;
+  align-self:stretch;
+  min-height:218px;
+  border-radius:18px;
+  overflow:hidden;
+  background:#e8ece8;
+  box-shadow:0 10px 24px rgba(0,0,0,.20);
 }
 
 .poster img{
-width:100%;
-display:block;
-border-radius:16px;
-box-shadow:0 8px 20px rgba(0,0,0,.18);
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
-.head{
-display:flex;
-justify-content:space-between;
-align-items:flex-start;
-gap:10px;
+.poster-missing{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  min-height:218px;
+  padding:20px;
+  color:#66716a;
+  font-weight:800;
+  text-align:center;
 }
 
-.head h3{
-margin:0;
-font-size:22px;
-font-weight:700;
+.content{
+  min-width:0;
+  padding-right:4px;
 }
 
-.badges{
-display:flex;
-gap:6px;
-flex-wrap:wrap;
+.topline{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin-bottom:12px;
+  padding-right:62px;
 }
 
-.badge{
-background:#FF9800;
-color:#fff;
-padding:4px 10px;
-border-radius:999px;
-font-size:12px;
-font-weight:700;
+.time{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:#eff8f2;
+  color:var(--green);
+  padding:7px 11px;
+  border-radius:999px;
+  font-weight:900;
 }
 
-.badge.dkf{
-background:#1E88E5;
+.age{
+  display:inline-flex;
+  background:#ff9800;
+  color:#fff;
+  padding:7px 11px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
 }
 
-.badge.ticket{
-background:#455A64;
+.age.age-family{
+  background:var(--green);
 }
 
-.line{
-height:3px;
-background:#E73139;
-margin:12px 0 16px;
-border-radius:3px;
+.age.age-teen{
+  background:#c49300;
 }
 
-.line.dkf{
-background:#1E88E5;
+.age.age-older{
+  background:#f07800;
 }
 
-strong{
-color:#079B39;
+.age.age-adult{
+  background:#d82128;
 }
 
-p{
-margin:4px 0;
-font-size:14px;
+.ticket{
+  display:inline-flex;
+  background:#263238;
+  color:#fff;
+  padding:7px 11px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
 }
 
-tbody tr:last-child td:first-child{
-border-bottom-left-radius:18px;
+h3{
+  margin:0 0 8px;
+  font-size:25px;
+  line-height:1.08;
 }
 
-tbody tr:last-child td:last-child{
-border-bottom-right-radius:18px;
+.meta{
+  color:var(--muted);
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.info{
+  display:grid;
+  gap:6px;
+  font-size:14px;
+  line-height:1.35;
+}
+
+.info p{
+  margin:0;
+}
+
+.info strong{
+  color:var(--green);
+}
+
+.loading,
+.error{
+  margin-top:34px;
+  padding:22px;
+  border-radius:20px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  color:#5e6861;
+  font-weight:700;
 }
 
 @media(max-width:900px){
-table,thead,tbody,tr,td,th{
-display:block;
-width:100%;
+  .cards{
+    grid-template-columns:1fr;
+  }
 }
-thead{display:none;}
-td:first-child{
-border-right:0;
+
+@media(max-width:620px){
+  .page{
+    padding:18px 10px 40px;
+  }
+
+  .hero{
+    padding:24px 18px;
+    border-radius:22px;
+  }
+
+  .card{
+    grid-template-columns:112px 1fr;
+    gap:14px;
+    padding:14px;
+    border-radius:20px;
+    min-height:210px;
+  }
+
+  .poster{
+    min-height:166px;
+    border-radius:14px;
+  }
+
+  .poster-missing{
+    min-height:166px;
+  }
+
+  .topline{
+    padding-right:0;
+  }
+
+  .card.dkf::before{
+    position:static;
+    grid-column:1 / -1;
+    justify-self:start;
+    margin-bottom:-4px;
+  }
+
+  h3{
+    font-size:21px;
+  }
+
+  .meta,
+  .info{
+    font-size:13px;
+  }
 }
+
+@media(max-width:440px){
+  .card{
+    grid-template-columns:1fr;
+  }
+
+  .poster{
+    height:330px;
+  }
+
+  .content{
+    padding-right:0;
+  }
 }
 </style>
 </head>
 
 <body>
+<div class="page">
+  <header class="hero">
+    <div class="kicker">Kino Za Rogiem · MOKSiAL</div>
+    <h1 id="title">Repertuar</h1>
+    <p>Aktualny repertuar Kina Za Rogiem w Szklarskiej Porębie.</p>
+    <div class="color-strip" aria-hidden="true"></div>
+  </header>
 
-<div class="moksial">
-
-<div class="bar"></div>
-<h2><span id="title">Repertuar – Marzec 2026</span></h2>
-
-<div class="wrap">
-<table>
-<thead>
-<tr>
-<th>DATA</th>
-<th>FILM</th>
-</tr>
-</thead>
-
-<tbody id="repertuar"></tbody>
-
-</table>
-</div>
+  <main id="app">
+    <div class="loading">Ładowanie repertuaru...</div>
+  </main>
 </div>
 
 <script>
 fetch("data/2026-06.json")
-.then(res => res.json())
+.then(res => {
+  if(!res.ok){
+    throw new Error("Nie udało się pobrać pliku repertuaru.");
+  }
+  return res.json();
+})
 .then(data => {
+  document.getElementById("title").innerText = "Repertuar — " + data.month;
 
-document.getElementById("title").innerText =
-"Repertuar – Kino Za Rogiem (" + data.month + ")";
+  const app = document.getElementById("app");
+  app.innerHTML = "";
 
-const tbody = document.getElementById("repertuar");
+  const groups = data.movies.reduce((acc, movie) => {
+    acc[movie.date] = acc[movie.date] || [];
+    acc[movie.date].push(movie);
+    return acc;
+  }, {});
 
-data.movies.forEach(movie => {
+  Object.keys(groups).forEach(date => {
+    const section = document.createElement("section");
+    section.className = "day";
+    section.innerHTML = `
+      <h2 class="day-title">
+        <span class="date-pill">${date}</span>
+        <span>${dayName(date)}</span>
+      </h2>
+      <div class="cards"></div>
+    `;
 
-const tr = document.createElement("tr");
+    const cards = section.querySelector(".cards");
 
-tr.innerHTML = `
-<td>
-<div class="date">${movie.date}</div><br>
-${movie.time}
-<div class="poster">
-<img src="posters/${movie.poster}" alt="${movie.title}">
-</div>
-</td>
+    groups[date].forEach(movie => {
+      const card = document.createElement("article");
+      card.className = `card ${movie.dkf ? "dkf" : ""}`;
+      card.innerHTML = `
+        <div class="poster">
+          <img src="posters/${movie.poster}" alt="${escapeHtml(movie.title)}" onerror="showMissingPoster(this)">
+        </div>
 
-<td>
-<div class="head">
-<h3>${movie.title}</h3>
-<div class="badges">
-${movie.dkf ? `<span class="badge dkf">DKF</span>
-<span class="badge ticket">Bilet: ${movie.ticket}</span>` : ``}
-<span class="badge">Wiek: ${movie.age}</span>
-</div>
-</div>
+        <div class="content">
+          <div class="topline">
+            <span class="time">godz. ${movie.time}</span>
+            <span class="age ${ageClass(movie.age)}">Wiek: ${formatAge(movie.age)}</span>
+            ${movie.ticket ? `<span class="ticket">Bilet: ${movie.ticket}</span>` : ""}
+          </div>
 
-<div class="line ${movie.dkf ? "dkf" : ""}"></div>
+          <h3>${movie.title}</h3>
+          <div class="meta">${movie.genre} · ${movie.country} · ${movie.duration} min</div>
 
-<p><strong>Rok produkcji:</strong> ${movie.year}</p>
-<p><strong>Rodzaj:</strong> ${movie.type}</p>
-<p><strong>Gatunek:</strong> ${movie.genre}</p>
-<p><strong>Produkcja:</strong> ${movie.country}</p>
-<p><strong>Reżyseria:</strong> ${movie.director}</p>
-${movie.cast ? `<p><strong>Obsada:</strong> ${movie.cast}</p>` : ``}
-<p><strong>Dystrybutor:</strong> ${movie.distributor}</p>
-<p><strong>Czas trwania:</strong> ${movie.duration} min</p>
-</td>
-`;
+          <div class="info">
+            <p><strong>Rok produkcji:</strong> ${movie.year}</p>
+            <p><strong>Rodzaj:</strong> ${movie.type}</p>
+            <p><strong>Reżyseria:</strong> ${movie.director}</p>
+            ${movie.cast ? `<p><strong>Obsada:</strong> ${movie.cast}</p>` : ""}
+            <p><strong>Dystrybutor:</strong> ${movie.distributor}</p>
+          </div>
+        </div>
+      `;
+      cards.appendChild(card);
+    });
 
-tbody.appendChild(tr);
-
+    app.appendChild(section);
+  });
+})
+.catch(error => {
+  document.getElementById("app").innerHTML = `<div class="error">${error.message}</div>`;
 });
 
-});
+function dayName(dateStr){
+  const [d,m,y] = dateStr.split(".").map(Number);
+  const date = new Date(y, m - 1, d);
+  return date.toLocaleDateString("pl-PL", {
+    weekday:"long",
+    day:"numeric",
+    month:"long",
+    year:"numeric"
+  });
+}
+
+function formatAge(age){
+  const value = String(age);
+  return value.includes("+") ? value : value + "+";
+}
+
+function ageClass(age){
+  const n = String(age).replace("+", "");
+  if(["7", "9"].includes(n)) return "age-family";
+  if(n === "13") return "age-teen";
+  if(["15", "16"].includes(n)) return "age-older";
+  if(n === "18") return "age-adult";
+  return "";
+}
+
+function escapeHtml(text){
+  return String(text)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function showMissingPoster(img){
+  const poster = img.parentElement;
+  poster.innerHTML = '<div class="poster-missing">Brak plakatu</div>';
+}
 </script>
-
 </body>
 </html>
