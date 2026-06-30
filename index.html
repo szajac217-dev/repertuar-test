@@ -386,7 +386,7 @@ h3{
 </div>
 
 <script>
-fetch("data/2026-06.json")
+fetch("data/2026-07.json")
 .then(res => {
   if(!res.ok){
     throw new Error("Nie udało się pobrać pliku repertuaru.");
@@ -429,17 +429,17 @@ fetch("data/2026-06.json")
         <div class="content">
           <div class="topline">
             <span class="time">godz. ${movie.time}</span>
-            <span class="age ${ageClass(movie.age)}">Wiek: ${formatAge(movie.age)}</span>
+            ${movie.age && movie.age !== "—" ? `<span class="age ${ageClass(movie.age)}">Wiek: ${formatAge(movie.age)}</span>` : ""}
             ${movie.ticket ? `<span class="ticket">Bilet: ${movie.ticket}</span>` : ""}
           </div>
 
           <h3>${movie.title}</h3>
-          <div class="meta">${movie.genre} · ${movie.country} · ${movie.duration} min</div>
+          <div class="meta">${[movie.genre, movie.country !== "—" ? movie.country : "", movie.duration !== "—" ? movie.duration + " min" : ""].filter(Boolean).join(" · ")}</div>
 
           <div class="info">
-            <p><strong>Rok produkcji:</strong> ${movie.year}</p>
+            ${movie.year !== "—" ? `<p><strong>Rok produkcji:</strong> ${movie.year}</p>` : ""}
             <p><strong>Rodzaj:</strong> ${movie.type}</p>
-            <p><strong>Reżyseria:</strong> ${movie.director}</p>
+            ${movie.director !== "—" ? `<p><strong>Reżyseria:</strong> ${movie.director}</p>` : ""}
             ${movie.cast ? `<p><strong>Obsada:</strong> ${movie.cast}</p>` : ""}
             <p><strong>Dystrybutor:</strong> ${movie.distributor}</p>
           </div>
