@@ -149,14 +149,29 @@ function renderMovies(movies){
     button.type = "button";
     button.textContent = shortDate(date);
     button.setAttribute("aria-label",`Przejdź do ${dayName(date)}`);
-    button.addEventListener("click",() => {
-      section.scrollIntoView({behavior:"smooth",block:"start"});
-    });
+    button.addEventListener("click",() => scrollToDay(section));
     nav.appendChild(button);
 
     const cards = section.querySelector(".cards");
     dayMovies.forEach(movie => cards.appendChild(createCard(movie)));
     app.appendChild(section);
+  });
+}
+
+function scrollToDay(section){
+  const targetOffset = Math.max(0,Math.round(section.offsetTop - 14));
+
+  if(window.parent !== window){
+    window.parent.postMessage({
+      type:"repertuar-scroll-to",
+      offset:targetOffset
+    },"*");
+    return;
+  }
+
+  window.scrollTo({
+    top:targetOffset,
+    behavior:"smooth"
   });
 }
 
