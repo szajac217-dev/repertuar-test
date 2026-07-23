@@ -47,7 +47,7 @@ body{
 .date-nav button:hover,.date-nav button:focus{background:var(--green);color:#fff;border-color:var(--green);outline:none;transform:translateY(-1px)}
 
 #app{height:auto;min-height:0}
-.day{margin-top:24px;scroll-margin-top:84px}
+.day{margin-top:24px;scroll-margin-top:140px}
 .day-title{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:0 0 11px;font-size:20px}
 .date-pill{display:inline-flex;padding:7px 12px;border:1px solid rgba(7,155,57,.35);border-radius:999px;color:var(--green);background:#fff;font-size:14px;font-weight:900;box-shadow:0 6px 18px rgba(0,0,0,.05)}
 .day-name{font-weight:850}
@@ -80,7 +80,7 @@ h3{margin:0 0 7px;font-size:23px;line-height:1.12}
 @media(max-width:900px){.cards{grid-template-columns:1fr}}
 @media(max-width:620px){
   .page{padding:10px 9px 18px}.hero{padding:19px 17px;border-radius:19px}
-  .day{scroll-margin-top:72px}
+  .day{scroll-margin-top:110px}
   .card{grid-template-columns:118px minmax(0,1fr);gap:13px;min-height:198px;padding:12px;border-radius:18px}
   .poster,.poster-missing{min-height:175px}h3{font-size:19px}.meta,.info{font-size:12px}.badge{font-size:11px;padding:5px 8px}
 }
@@ -149,28 +149,17 @@ function renderMovies(movies){
     button.type = "button";
     button.textContent = shortDate(date);
     button.setAttribute("aria-label",`Przejdź do ${dayName(date)}`);
-    button.addEventListener("click",() => scrollToDay(section));
+    button.addEventListener("click",() => {
+      section.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
+    });
     nav.appendChild(button);
 
     const cards = section.querySelector(".cards");
     dayMovies.forEach(movie => cards.appendChild(createCard(movie)));
     app.appendChild(section);
-  });
-}
-
-function scrollToDay(section){
-  const targetOffset = Math.max(0,Math.round(section.offsetTop - 14));
-
-  if(window.parent !== window){
-    window.parent.postMessage({
-      type:"repertuar-scroll-to",
-      offset:targetOffset
-    },"*");
-  }
-
-  section.scrollIntoView({
-    behavior:"smooth",
-    block:"start"
   });
 }
 
