@@ -166,12 +166,11 @@ function scrollToDay(section){
       type:"repertuar-scroll-to",
       offset:targetOffset
     },"*");
-    return;
   }
 
-  window.scrollTo({
-    top:targetOffset,
-    behavior:"smooth"
+  section.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
   });
 }
 
