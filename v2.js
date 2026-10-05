@@ -1,4 +1,4 @@
-const DATA_FILE = "data/2026-07.json";
+const DATA_FILE = "data/2026-10.json";
 
 const title = document.getElementById("title");
 const nav = document.getElementById("date-nav");
